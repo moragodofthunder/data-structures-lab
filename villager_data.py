@@ -21,11 +21,9 @@ def all_species(filename):
     village_file.close()
 
     return species_set
+
 print(all_species('villagers.csv'))
 
-    # TODO: replace this with your code
-
- 
 
 
 def get_villagers_by_species(filename, search_string="All"):
@@ -38,10 +36,22 @@ def get_villagers_by_species(filename, search_string="All"):
     Return:
         - list[str]: a list of names
     """
+    #open file
+    village_file = open(filename)
 
     villagers = []
+    # for loop
+    for line in village_file:
+        #split
+        villager_info = line.split("|")
+        species = villager_info[1]
+        name = villager_info[0]
+        #conditional:
+        if search_string in "species": 
+            villagers.append(name) #add to list?
 
-    # TODO: replace this with your code
+    #close file
+    village_file.close()
 
     return sorted(villagers)
 
